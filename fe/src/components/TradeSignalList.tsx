@@ -1,4 +1,3 @@
-// TradeSignalList.tsx
 import React from "react";
 import { TradeSignal } from "../types";
 
@@ -9,7 +8,6 @@ interface TradeSignalListProps {
   onReconnect?: () => void;
 }
 
-// Enhanced relative time utility that also returns if the post is recent
 const getRelativeTime = (
   timestamp: string
 ): { text: string; isRecent: boolean } => {
@@ -17,13 +15,11 @@ const getRelativeTime = (
   const pastDate = new Date(timestamp);
   const diffMs = now.getTime() - pastDate.getTime();
 
-  // Convert to seconds, minutes, hours, days
   const diffSec = Math.floor(diffMs / 1000);
   const diffMin = Math.floor(diffSec / 60);
   const diffHours = Math.floor(diffMin / 60);
   const diffDays = Math.floor(diffHours / 24);
 
-  // Check if post is recent (< 120 seconds old)
   const isRecent = diffSec < 120;
 
   if (diffSec < 60)
