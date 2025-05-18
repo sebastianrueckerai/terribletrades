@@ -105,7 +105,7 @@ Monitors Reddit for new posts and adds them to the `reddit-events` Redis stream.
 
 Analyzes posts using Groq LLM and generates trading signals. See [apps/reddit-strategy/README.md](apps/reddit-strategy/README.md) for details.
 
-## Redis Streams Architecture
+### Redis Streams Architecture
 
 The application uses Redis Streams for reliable message processing:
 
@@ -117,7 +117,7 @@ The application uses Redis Streams for reliable message processing:
 
 Provides real-time updates of trading signals to web clients. Connected to the strategy worker which pushes signals as they're generated. See [apps/frontend/README.md](apps/frontend/README.md) for details on connecting clients.
 
-### Monitoring Centrifugo
+#### Monitoring Centrifugo
 
 To check Centrifugo's status and view connected clients:
 
@@ -126,7 +126,7 @@ To check Centrifugo's status and view connected clients:
 kubectl port-forward -n trading svc/centrifugo 8000:8000 9000:9000
 ```
 
-## Front End
+### Front End
 
 Shows latest events and short history as well as connection status.
 See [fe/README.md](fe/README.md) for details.
