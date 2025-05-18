@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reddit-poller
+  labels:
+    app: reddit-poller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reddit-poller
+  template:
+    metadata:
+      labels:
+        app: reddit-poller
+    spec:
+      containers:
+        - name: reddit-poller
+          image: "reddit-poller:latest"
+          imagePullPolicy: Never
+          env:
+            - name: REDIS_ADDR
+              value: "redis-master:6379"
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "shared-redis-password"
+                  key: "redis_password"
+            - name: REDDIT_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: "reddit-poller-secrets"
+                  key: "REDDIT_CLIENT_ID"
+            - name: REDDIT_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: "reddit-poller-secrets"
+                  key: "REDDIT_CLIENT_SECRET"
+            - name: REDDIT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: "reddit-poller-secrets"
+                  key: "REDDIT_USERNAME"
+            - name: REDDIT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "reddit-poller-secrets"
+                  key: "REDDIT_PASSWORD"
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
+            requests:
+              cpu: "50m"
+              memory: "64Mi"

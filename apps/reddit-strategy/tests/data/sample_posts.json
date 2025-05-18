@@ -1,0 +1,32 @@
+[
+  {
+    "id": "test1",
+    "title": "NVDA to the moon! Here's why I'm buying more calls tomorrow",
+    "body": "They will bring out the big news tomorrow and it will be big!!!",
+    "url": "https://reddit.com/r/wallstreetbets/sample-post-1",
+    "author": "test_user1",
+    "subreddit": "wallstreetbets",
+    "created": "2025-05-15T12:00:00Z",
+    "expected_decision": 1
+  },
+  {
+    "id": "test2",
+    "title": "Just sold all my AAPL shares, market crash incoming",
+    "body": "There will be more trade war and its going to tank the economy!",
+    "url": "https://reddit.com/r/wallstreetbets/sample-post-2",
+    "author": "test_user2",
+    "subreddit": "wallstreetbets",
+    "created": "2025-05-15T12:30:00Z",
+    "expected_decision": 2
+  },
+  {
+    "id": "test3",
+    "title": "Weekend Discussion Thread for the Weekend of May 15, 2025",
+    "body": "Feel free to post what you want in the comments!",
+    "url": "https://reddit.com/r/wallstreetbets/sample-post-3",
+    "author": "test_user3",
+    "subreddit": "wallstreetbets",
+    "created": "2025-05-15T13:00:00Z",
+    "expected_decision": 0
+  }
+]

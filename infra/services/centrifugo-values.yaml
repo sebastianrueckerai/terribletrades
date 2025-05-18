@@ -1,0 +1,54 @@
+config:
+  client:
+    allowed_origins:
+      - "*"
+  engine:
+    type: "memory"
+  admin:
+    enabled: true
+
+  channel:
+    without_namespace:
+      history_size: 100
+      history_ttl: "720h"
+      allow_subscribe_for_client: true
+      allow_history_for_client: true
+      allow_history_for_subscriber: true
+    namespaces:
+      - name: "trading"
+        history_size: 100
+        history_ttl: "720h"
+        force_recovery: true
+        force_positioning: true
+        allow_subscribe_for_client: true
+        allow_history_for_client: true
+        allow_history_for_subscriber: true
+
+secrets:
+  tokenHmacSecretKey: "${CENTRIFUGO_TOKEN_HMAC_SECRET}"
+  adminPassword: "${CENTRIFUGO_ADMIN_PASSWORD}"
+  adminSecret: "${CENTRIFUGO_ADMIN_SECRET}"
+  apiKey: "${CENTRIFUGO_API_KEY}"
+
+service:
+  type: NodePort
+  ports:
+    api:
+      port: ${CENTRIFUGO_API_PORT}
+      nodePort: 32469
+    http:
+      port: ${CENTRIFUGO_WS_PORT}
+      nodePort: 32288
+    grpc:
+      port: 10000
+      nodePort: 32671
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+logLevel: "debug"

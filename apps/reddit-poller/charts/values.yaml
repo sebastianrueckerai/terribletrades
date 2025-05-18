@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: ${var.master_ip}:30500/reddit-poller
+  tag: latest
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: registry-credentials
+
+podSecurityContext: {}
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+config:
+  redisAddress: "redis-master:6379"
+
+secretRefs:
+  redisPassword:
+    secretName: "shared-redis-password"
+    secretKey: "redis_password"
+  redditCredentials:
+    secretName: "reddit-poller-secrets"

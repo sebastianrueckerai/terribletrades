@@ -1,0 +1,31 @@
+architecture: standalone # Or 'replication' if you were using cluster mode
+
+auth:
+  enabled: true
+  password: "${REDIS_PASSWORD}" # Your Redis password
+
+master:
+  persistence:
+    enabled: true
+    size: 8Gi
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+    limits:
+      memory: 512Mi
+      cpu: 250m
+
+# If using replication architecture, uncomment:
+# replica:
+#   replicaCount: 2
+#   persistence:
+#     enabled: true
+#     size: 8Gi
+
+service:
+  type: ClusterIP
+  port: 6379
+
+sentinel:
+  enabled: false # Set to true if you were using sentinel

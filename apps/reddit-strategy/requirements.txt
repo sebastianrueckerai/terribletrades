@@ -1,0 +1,4 @@
+redis==6.1.0
+python-dotenv==1.1.0
+groq==0.24.0
+aiohttp==3.11.18

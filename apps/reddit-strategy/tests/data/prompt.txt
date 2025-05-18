@@ -1,0 +1,10 @@
+Analyze this Reddit post from r/wallstreetbets and determine if it contains a trading signal.
+{}
+
+Your task is to:
+1. Determine if the post suggests a BUY, SELL, or NO ACTION signal
+2. Explain your reasoning in 2-3 sentences
+3. End your analysis with a single digit code:
+   - 0 = No Action
+   - 1 = Buy
+   - 2 = Sell

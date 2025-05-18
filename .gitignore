@@ -1,0 +1,40 @@
+# Ignore k3s_token file in any directory
+**/k3s_token
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+*.tfvars
+!*.tfvars.example
+
+# Secrets
+.secrets
+.env
+secrets-output/
+*.key
+*_key
+*_rsa
+*.pem
+*.password
+*.token
+
+# Kubernetes
+**/kubeconfig.yaml
+
+# Generated files
+*.tar
+*.tar.gz
+
+# IDE files
+.idea/
+.vscode/
+.conda/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Playground
+/playground
